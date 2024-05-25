@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Tablero</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <button onclick="generar()">Generar Tablero</button>
+    <table id="tablero"></table>
+
+    <script>
+        const generar = () => {
+            const tablero = document.getElementById("tablero");
+            tablero.innerHTML = ""; 
+            let numero = 0;
+            let contador = 0;
+
+            for (let fila = 0; fila < 5; fila++) {
+                const filaElemento = document.createElement("tr");
+                for (let columna = 0; columna < 5; columna++) {
+                    const casilla = document.createElement("td");
+                    casilla.textContent = numero;
+                    filaElemento.appendChild(casilla);
+                    contador++;
+
+                    if (contador % 2 === 0) {
+                        numero++;
+                    }
+                }
+                tablero.appendChild(filaElemento);
+            }
+        };
+    </script>
+</body>
+</html>
+
+
